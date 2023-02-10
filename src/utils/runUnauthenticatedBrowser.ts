@@ -2,12 +2,7 @@ import fs from "fs/promises";
 import puppeteer from "puppeteer";
 
 const runUnauthenticatedBrowser = async (url: string): Promise<boolean> => {
-  const browser = await puppeteer.launch({
-    headless: true,
-    env: {
-      DISPLAY: ":10.0",
-    },
-  });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
   const cookiesString = await fs.readFile("./cookies.json");

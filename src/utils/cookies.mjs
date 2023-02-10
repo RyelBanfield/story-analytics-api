@@ -5,7 +5,7 @@ import puppeteer from "puppeteer";
 dotenv.config();
 
 const Login = async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
 
   await page.goto("https://www.instagram.com/accounts/login/");
