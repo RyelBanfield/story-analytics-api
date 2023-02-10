@@ -4,7 +4,9 @@ import puppeteer from "puppeteer";
 const runUnauthenticatedBrowser = async (url: string): Promise<boolean> => {
   const browser = await puppeteer.launch({
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    env: {
+      DISPLAY: ":10.0",
+    },
   });
   const page = await browser.newPage();
 
