@@ -7,7 +7,6 @@ dotenv.config();
 const Login = async () => {
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
-  await page.setDefaultNavigationTimeout(0);
 
   await page.goto("https://www.instagram.com/accounts/login/");
 
