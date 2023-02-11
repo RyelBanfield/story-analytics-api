@@ -5,10 +5,14 @@ import puppeteer from "puppeteer";
 dotenv.config();
 
 const Login = async () => {
-  const browser = await puppeteer.launch({
-    headless: true,
+  let browser = await puppeteer.launch({
     executablePath: "/usr/bin/chromium-browser",
-    args: ["--no-sandbox", "--disable-gpu"],
+    args: [
+      "--disable-gpu",
+      "--disable-setuid-sandbox",
+      "--no-sandbox",
+      "--no-zygote",
+    ],
   });
   const page = await browser.newPage();
 
