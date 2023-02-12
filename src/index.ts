@@ -3,7 +3,7 @@ import express from "express";
 import runUnauthenticatedBrowser from "./utils/runUnauthenticatedBrowser.js";
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
@@ -15,6 +15,8 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.get("/", (req, res) => res.send("Story Analytics API"));
 
 app.post("/", (req, res) => {
   const { url } = req.body as { url: string };

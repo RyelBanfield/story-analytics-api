@@ -5,13 +5,9 @@ import puppeteer from "puppeteer";
 dotenv.config();
 
 const Login = async () => {
-  let browser = await puppeteer.launch({
-    args: [
-      "--disable-gpu",
-      "--disable-setuid-sandbox",
-      "--no-sandbox",
-      "--no-zygote",
-    ],
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ["--no-sandbox"],
   });
   const page = await browser.newPage();
 
