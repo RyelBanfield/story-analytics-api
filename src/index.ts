@@ -3,7 +3,7 @@ import express from "express";
 import runUnauthenticatedBrowser from "./utils/runUnauthenticatedBrowser.js";
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = 8080;
 
 app.use(express.json());
 
@@ -30,5 +30,5 @@ app.post("/", (req, res) => {
 });
 
 app.listen(port, () =>
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`App listening at http://localhost:${port}`)
 );
