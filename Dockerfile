@@ -14,13 +14,15 @@ RUN apk update && apk add --no-cache nmap && \
   nss
 
 ENV PUPPETEER_SKIP_DOWNLOAD 1
+ENV PUPPETEER_EXECUTABLE_PATH /usr/bin/chromium-browser
 
-COPY package.json .
+COPY package.json yarn.lock ./
 
 RUN yarn install
 
 COPY ./ .
 
 EXPOSE 8080
+ENV PORT 8080
 
 CMD [ "yarn", "start" ]
